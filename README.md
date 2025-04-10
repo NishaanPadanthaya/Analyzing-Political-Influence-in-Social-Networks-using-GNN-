@@ -1,4 +1,4 @@
-# Congressional Network Analysis with Graph Neural Networks
+# Analyzing Political Influence and Communication Patterns in Social Networks using GNN 
 
 ## Project Overview
 
@@ -85,65 +85,7 @@ torch-scatter
 seaborn
 ```
 
-## Installation
 
-### For Python Script
-
-To install the required dependencies for running the Python script:
-
-```python
-# Basic dependencies
-pip install numpy matplotlib networkx scikit-learn seaborn
-
-# PyTorch (CPU version)
-pip install torch torchvision
-
-# PyTorch Geometric and related packages
-pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-2.0.0+cpu.html
-```
-
-### For Jupyter Notebook
-
-To install the required dependencies in a Jupyter notebook:
-
-```python
-# Basic dependencies
-!pip install numpy matplotlib networkx scikit-learn seaborn
-
-# PyTorch (CPU version)
-!pip install torch torchvision
-
-# PyTorch Geometric and related packages
-!pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-2.0.0+cpu.html
-```
-
-For GPU support, modify the PyTorch Geometric installation to match your PyTorch and CUDA version:
-
-```python
-# For GPU support (example with PyTorch 2.0.0 and CUDA 11.8)
-!pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-2.0.0+cu118.html
-```
-
-Note: You may need to restart the Jupyter kernel after installation to use the newly installed packages.
-
-## Usage
-
-### Running the Python Script
-
-To run the full analysis:
-
-```
-python congress_network_gnn.py
-```
-
-### Using in a Jupyter Notebook
-
-To use in a Jupyter notebook:
-
-1. Install dependencies (see Installation section)
-2. Import required libraries
-3. Copy the functions from `congress_network_gnn.py` into notebook cells
-4. Execute the cells in sequence
 
 ## Output
 
@@ -163,58 +105,3 @@ The implementation generates several visualizations:
    - Network visualization with detected communities
    - t-SNE visualization of node embeddings
    - Community statistics and key members
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Disconnected Graph Error**:
-   - The implementation handles disconnected graphs by using PageRank as an alternative to eigenvector centrality.
-   - If you encounter other graph-related errors, consider preprocessing the graph to ensure connectivity.
-
-2. **CUDA Out of Memory**:
-   - If you encounter GPU memory issues, try reducing batch sizes or model complexity.
-   - Alternatively, switch to CPU computation by setting `device = torch.device('cpu')`.
-
-3. **Package Installation Issues**:
-   - PyTorch Geometric requires specific versions that match your PyTorch and CUDA versions.
-   - Refer to the [PyTorch Geometric installation guide](https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html) for detailed instructions.
-
-4. **Jupyter Notebook Installation**:
-   - When installing in a Jupyter notebook, use the `!pip install` command with the exclamation mark.
-   - You may need to restart the kernel after installation to use the newly installed packages.
-
-## Project Structure
-
-```
-congress_network/
-├── congress_network_data.json    # Network dataset
-├── congress.edgelist             # NetworkX format edgelist
-├── viral_centrality.py           # Implementation of viral centrality
-├── congress_network_gnn.py       # Main implementation file
-├── README.md                     # This file
-└── output/                       # Generated visualizations
-    ├── influence_prediction.png
-    ├── centrality_correlation.png
-    ├── gnn_vs_viral_centrality.png
-    ├── community_detection.png
-    └── community_embeddings.png
-```
-
-## Practical Applications
-
-This implementation enables several practical applications:
-
-1. **Identifying Key Influencers**: Finding accounts that can effectively spread information
-2. **Understanding Political Polarization**: Analyzing community structure and cross-party interactions
-3. **Predicting Information Spread**: Modeling how messages propagate through the political network
-4. **Strategic Communication**: Identifying optimal paths for message dissemination
-
-## Future Work
-
-Potential extensions to this project include:
-
-1. **Temporal Analysis**: Incorporating time dynamics to track evolving trends
-2. **Content Analysis**: Integrating text data from tweets to analyze message content
-3. **Cross-Platform Analysis**: Extending to other social media platforms
-4. **Predictive Modeling**: Forecasting viral content and information cascades
